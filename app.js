@@ -21,7 +21,15 @@ app.use(express.json());
 const cors = require('cors')
 const helmet = require('helmet')
 const xss = require('xss')
-const  rateLimiter = require('express-rate-limit')
+const rateLimiter = require('express-rate-limit')
+
+// app.get('/',(req,res)=>{
+//   res.send('jobs-api')
+// })
+
+app.get('/',(req,res)=>{
+    res.send(jobs-api)
+})
 
 // routes
 app.use('/api/v1/auth',authRouter)
@@ -31,6 +39,7 @@ app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 app.set('trust proxy', 1)
+
 app.use(rateLimiter({
   windowMs: 15 * 60 * 1000, // 15 minutes
 	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
